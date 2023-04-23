@@ -1,0 +1,43 @@
+CREATE TABLE vehiculos (
+	id INT PRIMARY KEY,
+	marca VARCHAR(50),
+	modelo VARCHAR(50),
+	año INT,
+	capacidad_pasajeros INT,
+	capacidad_carga INT
+);
+
+CREATE TABLE clientes (
+	id INT PRIMARY KEY,
+	nombre VARCHAR(50),
+	apellido VARCHAR(50),
+	dni INT,
+	direccion VARCHAR(100),
+	telefono VARCHAR(20)
+);
+
+CREATE TABLE alquileres (
+	id INT PRIMARY KEY,
+	id_vehiculo INT,
+	id_cliente INT,
+	fecha_inicio DATE,
+	fecha_fin DATE,
+	precio_total DECIMAL(10,2)
+);
+
+INSERT INTO vehiculos (id, marca, modelo, año, capacidad_pasajeros, capacidad_carga) VALUES
+	(1, 'Toyota', 'Corolla', 2018, 5, 500),
+	(2, 'Chevrolet', 'Cruze', 2019, 5, 400),
+	(3, 'Ford', 'Fiesta', 2017, 5, 300),
+	(4, 'Renault', 'Clio', 2019, 5, 250);
+
+INSERT INTO clientes (id, nombre, apellido, dni, direccion, telefono) VALUES
+	(1, 'Juan', 'Pérez', 12345678, 'Av. Siempre Viva 123', '555-5555'),
+	(2, 'María', 'González', 87654321, 'Calle Falsa 123', '666-6666'),
+	(3, 'Pedro', 'Rodríguez', 11223344, 'Calle Inventada 123', '777-7777');
+
+INSERT INTO alquileres (id, id_vehiculo, id_cliente, fecha_inicio, fecha_fin, precio_total) VALUES
+	(1, 1, 1, '2022-01-01', '2022-01-07', 1000.00),
+	(2, 2, 2, '2022-02-01', '2022-02-07', 1200.00),
+	(3, 3, 3, '2022-03-01', '2022-03-07', 800.00),
+	(4, 4, 1, '2022-04-01', '2022-04-07', 600.00);
